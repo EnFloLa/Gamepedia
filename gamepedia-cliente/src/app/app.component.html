@@ -1,0 +1,192 @@
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light container">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" [routerLink]="['/inicio']">
+        <img src="assets/img/gamepedia.svg" height="60"
+          alt="Gamepedia Logo" loading="lazy" />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link mx-2" [routerLink]="['/inicio']">
+            Inicio <i class="bi bi-house-fill"></i></a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link mx-2" [routerLink]="['/juegos-online']">
+            Juegos online <i class="bi bi-joystick"></i>
+          </a>                   
+        </li>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link mx-2" [routerLink]="['/noticias']">
+            Noticias <i class="bi bi-newspaper"></i></a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link mx-2" [routerLink]="['/nosotros']">Acerca de Nosotros
+          </a>                   
+        </li>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link mx-2" [routerLink]="['/contactanos']">Contáctanos
+          </a>                   
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Usuario -->   
+    <div class="btn-group dropstart">
+        <a type="button" class="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" class="rounded-circle"
+            height="30" alt="Tu Nuevo Avatar" loading="lazy" />
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li>
+            <a class="dropdown-item">Nuevo Perfil</a>
+          </li>
+          <li>
+            <a class="dropdown-item">Nueva Configuración</a>
+          </li>
+          <li>
+            <a class="dropdown-item">Cerrar sesión</a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li class="dropdown">
+          <a class="dropdown-item dropdown-toggle" [routerLink]="['/menu-admin']" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+            Modo Administrador
+          </a>
+          </li>
+        </ul>
+    </div>    
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Final Header -->
+
+<!-- ===================== -->
+<!-- Contenedor Important! -->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<!-- Contenedor Important! -->
+<!-- ===================== -->
+
+<!-- Inicio Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+
+    <!-- Right -->
+    <div>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="me-4 text-reset">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gamepad me-3"></i>Gamepedia
+          </h6>
+          <p>
+            Bienvenido a Gamepedia, tu biblioteca de juegos en línea. Descubre una amplia selección de juegos, noticias y reseñas.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Categorías
+          </h6>
+          <p>
+            <a class="text-reset">Acción</a>
+          </p>
+          <p>
+            <a class="text-reset">Aventura</a>
+          </p>
+          <p>
+            <a class="text-reset">Estrategia</a>
+          </p>
+          <p>
+            <a class="text-reset">Deportes</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Enlaces útiles
+          </h6>
+          <p>
+            <a class="text-reset">Sobre nosotros</a>
+          </p>
+          <p>
+            <a class="text-reset">Contacto</a>
+          </p>
+          <p>
+            <a class="text-reset">Política de privacidad</a>
+          </p>
+          <p>
+            <a class="text-reset">Términos de servicio</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+          <p><i class="fas fa-envelope me-3"></i> info@gamepedia.com</p>
+          <p><i class="fas fa-phone me-3"></i> +51 934 567 488</p>
+          <p><i class="fas fa-map-marker-alt me-3"></i> Peru, Arequipa 10012</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2023 Gamepedia. Todos los derechos reservados.
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

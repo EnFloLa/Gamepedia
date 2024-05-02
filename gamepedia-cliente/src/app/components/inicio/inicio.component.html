@@ -1,0 +1,69 @@
+<!-- Sección de GIFs de Juegos -->
+<section class="py-3">
+    <div class="container">
+        <h3 class="text-center mb-4">Explora Nuestra Biblioteca de Diversión y Entretenimiento en Juegos</h3>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="game-gif">
+                    <img src="assets/img/gif2.gif" alt="GIF de Juego 1" style="height: 100px;">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="game-gif text-center">
+                    <img src="assets/img/gif5.gif" alt="GIF de Juego 3" style="height: 100px;">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="game-gif text-center">
+                    <img src="assets/img/gif4.gif" alt="GIF de Juego 2" style="height: 100px;">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="game-gif text-center">
+                    <img src="assets/img/gif3.gif" alt="GIF de Juego 2" style="height: 100px;">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="game-gif">
+                    <img src="https://i.imgflip.com/51jq8t.gif" alt="GIF de Juego 2" style="height: 100px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Catalogo de juegos agregados -->
+<div class="d-flex align-items-center justify-content-between my-3">
+    <h4>Todos los juegos <i class="bi bi-controller"></i>
+    </h4>
+    <div class="d-flex col-sm-4">
+        <!-- Barra de búsqueda -->
+        <input [(ngModel)]="title" class="form-control border border-dark me-2" type="text" placeholder="Buscar juegos" aria-label="Search">
+        <!-- Botón para realizar búsqueda -->
+        <button (click)="buscarJuegoPorTitulo()" class="btn btn-success" type="submit">Buscar</button>
+    </div>    
+</div>
+
+<!-- Lista de juegos -->
+<div class="row">
+    <!-- Bucle para mostrar juegos individuales -->
+    <div (click)="verDetalleJuego(j.codJue)" *ngFor="let j of objJuego" class="col-md-2 mb-4" style="cursor: pointer; text-decoration: none;">
+        <!-- Elemento individual de juego con detalles -->
+        <div class="card card-with-hover bg-light">
+            <img [src]="j.imagen" class="card-img-top img-game" alt="Juego Portada">
+            <div class="card-body">
+                <h6 class="card-title text-center text-dark">{{ j.titJue }}</h6>
+                <button class="btn btn-outline-light btn-view">
+                    Ver Detalle <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Si objJuego existe y su longitud es igual a 0, se muestra un mensaje de error -->
+<div *ngIf="objJuego && objJuego.length === 0" class="text-center text-danger py-5">
+    <h5 class="fw-bold">No se encontraron resultados del juego: {{ title }}</h5>
+    <a class="btn btn-danger px-5" href="#_">Refrescar</a>
+</div>
+

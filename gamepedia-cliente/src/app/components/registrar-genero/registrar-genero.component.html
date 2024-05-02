@@ -1,0 +1,19 @@
+<div class="container col-sm-6 mt-5">
+    <h3 class="mb-5">Registrar Genero</h3>
+    <form (ngSubmit)="onSubmit()" method="post">
+        <div class="row">
+            <div class="mb-3 col-sm-2">
+                <label for="codGen" class="form-label">Código:</label>
+                <input type="number" [(ngModel)]="objGenero.codGen" class="form-control" id="codGen" name="codGen" disabled>
+            </div>
+            
+            <div class="mb-3 col-sm-10">
+                <label for="nomGen" class="form-label">Nombre Genero:</label>
+                <input type="text" [(ngModel)]="objGenero.nomGen" class="form-control" id="nomGen" name="nomGen">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary col-12 mb-2">Guardar</button>
+        <button [routerLink]="'/generos'"  class="btn btn-success col-12">Ir al listado</button>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+<div class="mb-5 mt-2">
+    <h4 class="text-center">Mantenimiento Juego</h4>
+    <br>
+    <div class="d-flex align-items-center justify-content-evenly pb-3">
+        <a [routerLink]="'/registrar-juego'"  class="btn btn-warning px-5">Registrar Juego</a>
+        <button (click)="generarInforme()" class="btn btn-danger">Generar Informe PDF</button>
+        <a [routerLink]="'/menu-admin'"  class="btn btn-success px-5">Menu Administrador</a>
+    </div>
+
+    <table id="datatable-spanish" class="table table-striped table-bordered py-2">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Portada</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Fecha Lanzamiento</th>
+                <th>Genero</th>
+                <th>Desarrolladora</th>
+                <th>Plataforma</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let j of objJuego">
+                <td>{{ j.codJue }}</td>
+                <td class="text-center">
+                    <img
+                        [src]="j.imagen"
+                        style="height: 5em;"
+                        [ngClass]="{'zoomed-image': j === selectedJuego}"
+                        (mouseover)="selectJuego(j)"
+                        (mouseout)="selectedJuego = null" >
+                </td>
+                <td>{{ j.titJue }}</td>
+                <td>{{ j.desJue }}</td>
+                <td>S/. {{ j.preJue }}</td>
+                <td>{{ j.fecLanJue }}</td>
+                <td>{{ j.juegoGenero.nomGen }}</td>
+                <td>{{ j.juegoDesarrolladora.nomDes }}</td>
+                <td>{{ j.juegoPlataforma.plataforma }}</td>
+                <td class="d-grid">
+                    <button (click)= "actualizarJuego(j.codJue)" class="btn btn-sm btn-primary mb-1" data-title="Actualizar">
+                        <i class="bi bi-gear-fill"></i>
+                    </button>
+                    <button (click)= "eliminarJuego(j.codJue)" class="btn btn-sm btn-danger" data-title="Eliminar">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

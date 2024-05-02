@@ -1,0 +1,74 @@
+/* Style hover in data-title */
+button[data-title]:hover::after {
+    content: attr(data-title); 
+    display: block;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    position: absolute;
+    transform: translateX(-50%); 
+    z-index: 1; 
+}
+
+/* Style vista "Inicio" */
+.img-game {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn-view {
+    display: none;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Vista "juegos online" */
+.card .icon {
+    font-size: 3rem;
+    color: lightseagreen;
+}
+
+.card-text {
+    color: gray;
+}
+
+.card:hover {
+    background-color: lightseagreen;
+    color: #fff;
+}
+
+.card {
+    transition: all 0.5s;
+}
+
+.card:hover .icon,
+.card:hover .card-text {
+    color: #fff;
+}
+
+.card:hover .btn-view {
+    display: block;
+}
+
+.btn-view i {
+    margin-right: 5px;
+}
+
+/* Links css active */
+.active {
+    border-bottom: goldenrod solid;
+}
+

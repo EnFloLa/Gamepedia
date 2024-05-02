@@ -1,0 +1,19 @@
+<div class="container col-sm-6 mt-5">
+    <h3 class="mb-5">Registrar Desarrolladora</h3>
+    <form (ngSubmit)="onSubmit()" method="post">
+        <div class="row">
+            <div class="mb-3 col-sm-2">
+                <label for="codDes" class="form-label">Código:</label>
+                <input type="number" [(ngModel)]="objDesarrolladora.codDes" class="form-control" id="codDes" name="codDes" disabled>
+            </div>
+            
+            <div class="mb-3 col-sm-10">
+                <label for="nomDes" class="form-label">Nombre Desarrolladora:</label>
+                <input type="text" [(ngModel)]="objDesarrolladora.nomDes" class="form-control" id="nomDes" name="nomDes">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary col-12 mb-2">Guardar</button>
+        <button [routerLink]="'/desarrolladoras'"  class="btn btn-success col-12">Ir al listado</button>
+    </form>
+</div>

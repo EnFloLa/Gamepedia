@@ -1,0 +1,119 @@
+drop database if exists GAMEPEDIA;
+create database GAMEPEDIA;
+use GAMEPEDIA;
+
+-- tables
+create table tb_genero (
+cod_gen int primary key auto_increment,
+nom_gen varchar(70)
+);
+
+create table tb_desarrolladora (
+cod_des int primary key auto_increment,
+nom_des varchar(70)
+);
+
+create table tb_plataforma (
+cod_pla int primary key auto_increment,
+plataforma varchar(70)
+);
+
+create table tb_juego (
+cod_jue int primary key auto_increment,
+tit_jue varchar(70), 
+des_jue varchar(595), 
+pre_jue decimal(5,2), 
+fec_lan_jue date,
+imagen varchar(255),
+cod_gen int,
+cod_des int,
+cod_pla int,
+foreign key(cod_gen) references tb_genero(cod_gen),
+foreign key(cod_des) references tb_desarrolladora(cod_des),
+foreign key(cod_pla) references tb_plataforma(cod_pla)
+);
+
+-- inserts
+insert into tb_genero values
+(1, 'Aventura'),
+(2, 'Deportes'),
+(3, 'Estrategia'),
+(4, 'Arcade'),
+(5, 'Terror'),
+(6, 'RPG'),
+(7, 'Shooter'),
+(8, 'Puzzle'),
+(9, 'Simulación'),
+(10, 'Plataformas'),
+(11, 'Carreras'),
+(12, 'Mundo Abierto'),
+(13, 'Lucha'),
+(14, 'Educacional'),
+(15, 'Indie');
+
+insert into tb_desarrolladora values
+(1, 'Tencent Games'),
+(2, 'Riot Games'),
+(3, 'Sony'),
+(4, 'Ubisoft'),
+(5, 'Activision Blizzard'),
+(6, 'Electronic Arts'),
+(7, 'Nintendo'),
+(8, 'Valve Corporation'),
+(9, 'Square Enix'),
+(10, 'Epic Games'),
+(11, 'Bethesda Softworks'),
+(12, 'CD Projekt'),
+(13, 'Rockstar Games'),
+(14, 'Konami'),
+(15, 'Capcom');
+
+insert into tb_plataforma values
+(1, 'PlayStation 5'),
+(2, 'Xbox Series X'),
+(3, 'Nintendo Switch'),
+(4, 'PC'),
+(5, 'PlayStation 4'),
+(6, 'Xbox One');
+
+insert into tb_juego values
+(1, 'Sea of Stars', 'Sea of Stars promete el toque de Sabotage en todos los sistemas y viene para modernizar el género de RPG clásico en cuando al combate por turnos, narrativa, exploración e interacciones con el entorno se refiere, pues ofrece al mismo tiempo una generosa ración de nostalgia y diversión sencilla, de la de toda la vida.', 
+119.00, '2023-06-11', 'https://store-images.s-microsoft.com/image/apps.38545.13704965593711325.c8ed22ec-c56d-4ecd-bbbf-e9f6934161c4.31cf7163-fa87-4b36-a2a7-80c86dc947c7?w=200', 1, 3, 1),
+(2, 'Like a Dragon: Ishin!', 'El Kioto de la década de 1860 está plagado de desigualdades generalizadas, y un samurái cambiará el curso de la historia en su búsqueda de la justicia. Coge la espada de Sakamoto Ryoma y aventúrate en Kioto para encontrar al asesino de tu padre, exculparte de un asesinato y restaurar tu honor. Al hacerlo, pondrás fin a la era samurái y cambiarás para siempre el futuro de Japón.', 
+79.00, '2023-02-20', 'https://store-images.s-microsoft.com/image/apps.14121.13986316021730261.2a69ea94-8704-4fd3-951c-3403df80be07.e261d67a-1634-4f7d-9e55-dc8fd5c778fe?q=90&w=177&h=265', 2, 2, 2),
+(3, 'Forza Motorsport Standard Edition', 'Compite con más de 500 coches reales, incluidos coches de carreras modernos y más de 100 coches nuevos en Forza Motorsport. Haz que cada vuelta cuente en las 20 pistas con ubicaciones favoritas de los aficionados y múltiples diseños de pista que tendrás que dominar. Cada uno de ellos incluye puntuación en vivo en la pista, una hora del día totalmente dinámica con clima, y condiciones de conducción únicas que aseguran que no haya dos vueltas iguales.',
+55.00, '2022-07-02', 'https://store-images.s-microsoft.com/image/apps.57449.14311721322459352.08838dcd-1049-42ef-a004-b13ad1d41946.4eeb1f6f-f279-4d5b-83b0-8fb4cc7f9aea?w=200', 3, 1, 4),
+(4, 'Cocoon', 'COCOON es una apuesta única dentro del género de aventuras y acertijos. Tendrás que dominar la mecánica principal del juego: saltar de un mundo a otro. Esto te permitirá combinarlos, manipularlos y organizarlos. De esta forma, resolverás algunos de los acertijos más complejos y difíciles.', 
+89.00, '2021-02-13', 'https://store-images.s-microsoft.com/image/apps.14049.13933554322251706.0a9bd242-c253-4ad3-882f-a5699d708be5.5ab9988a-0928-47c8-bd59-62fc62fb2f25?q=90&w=177&h=265', 4, 4, 4),
+(5, 'Phoenix Wright', 'La serie clásica de aventuras judiciales que ha vendido más de 6,7 millones de copias en todo el mundo por fin ha llegado. Conviértete en Phoenix Wright y vive la emoción del estrado mientras salvas a tus clientes inocentes en un juicio. Juega a los 14 episodios, que cubren los 3 primeros juegos, en una fantástica colección. ¡Resuelve los emocionantes misterios detrás de cada caso y descubre la verdad por ti mismo!', 
+56.00, '2022-12-13', 'https://store-images.s-microsoft.com/image/apps.16759.14311843146455225.858b9bb0-aedd-46ab-907b-4002100e6620.36f89050-9225-4e01-9aec-06d3b388bca4?q=90&w=177&h=265', 4, 4, 5),
+(6, 'PAYDAY 3', 'PAYDAY 3 es la muy esperada secuela de uno de los shooters cooperativos más populares que existen. Desde su lanzamiento, los jugadores de PAYDAY han disfrutado de la emoción de un trabajo perfectamente planeado y ejecutado. Eso es lo que hace de PAYDAY una experiencia FPS cooperativa de alto octanaje sin igual.', 
+76.00, '2021-05-13', 'https://store-images.s-microsoft.com/image/apps.41648.13779457877292855.4803a4b4-94cc-4b12-bf91-ad49bcb0c65c.f14df05b-5717-4af8-a8ab-6201e4159608?q=90&w=177&h=265', 1, 2, 5),
+(7, 'Solar Ash', 'En medio de un paisaje surrealista repleto de ruinas abandonadas de grandes civilizaciones pasadas, encarnas a Rei, una exploradora del vacío decidida a no detenerse ante nada para salvar a su planeta de ser presa del Ultravacío.', 
+83.00, '2021-07-15', 'https://store-images.s-microsoft.com/image/apps.21358.14447139401506273.b065025b-66d2-462a-858d-58dcc2dcb52b.75065771-5e4f-42eb-8cac-50c2b863c18c?q=90&w=177&h=265', 1, 2, 4),
+(8, '7 Days to Die', 'Ubicado en un mundo posapocalíptico brutalmente implacable e infestado por los no muertos, 7 Days to Die es un juego en un mundo abierto que es una combinación única de tirador en primera persona, terror y supervivencia, defensa de la torre y juego de rol. En el juego hay combate, destreza, saqueo, minería, exploración y desarrollo del personaje de una forma que es completamente nueva para el género del juego de supervivencia.', 
+19.00, '2021-07-15', 'https://store-images.s-microsoft.com/image/apps.28856.69802328231064156.03ff84cc-b6b1-4226-8e6c-545d183e5fbf.b6546b0b-9563-4129-b79e-15bb4282048a?q=90&w=177&h=265', 1, 3, 3),
+(9, 'Burnout Paradise', '¡Bienvenido de nuevo a Paradise City! Hazte un nombre en las calles de Burnout™ Paradise Remastered. Siembra el caos desde las avenidas del centro de la ciudad hasta las carreteras más peligrosas de las montañas. ¡Haz acrobacias de infarto y arrasa con todo en el mejor juego de conducción arcade de todos los tiempos!', 
+89.00, '2023-07-19', 'https://store-images.s-microsoft.com/image/apps.39285.69242235395687976.60c3c0b9-9cce-4803-b1e8-f6861422bd64.509863ff-baac-4dbc-96bf-4688cfde5d1c?q=90&w=177&h=265', 1, 3, 2),
+(10, 'Citizen Sleeper', 'Citizen Sleeper, nominado a los Game Awards, fue uno de los juegos "indie" más aclamados de 2022. Este juego de rol inspirado en los juegos de mesa está ambientado en Erlins Eye, una estación espacial en ruinas donde miles de personas intentan sobrevivir en los márgenes de una sociedad capitalista interestelar.', 
+29.00, '2021-07-15', 'https://store-images.s-microsoft.com/image/apps.42227.14019812399166283.86c56d8c-9235-45b0-85dd-dc9647631d6e.1144b710-5809-4635-9a8c-220c6dd00b9f?q=90&w=177&h=265', 1, 3, 5),
+(11, 'DayZ', 'DayZ es un juego de supervivencia extrema en mundo abierto donde solo existe una regla: sobrevivir a toda costa. Y no es fácil, porque una plétora de amenazas acechan en cada rincón.', 
+56.00, '2019-01-19', 'https://store-images.s-microsoft.com/image/apps.23097.69886306496288395.9ec42146-6037-4440-b5c7-3a44e5213cc3.0e09163e-a6c4-40f6-9fe1-24a6b4685c64?q=90&w=177&h=265', 3, 1, 5),
+(12, 'Dead Cells', 'En Dead Cells, controlarás un experimento alquímico fallido e intentarás descubrir qué sucede en una isla, supuestamente maldita, en constante cambio y expansión. Los combates duros pero justos, los controles sensibles, los enemigos desafiantes, la muerte permanente y, desde luego, la tirada de emergencia para salir de apuros conforman un juego de acción exigente, sangriento y catártico.', 
+37.00, '2023-09-11', 'https://store-images.s-microsoft.com/image/apps.33704.68724117649475771.eac68952-84aa-42f0-875b-09de4c2ee208.c6483868-0337-4d5f-bc1f-36132804e3d7?q=90&w=177&h=265', 2, 3, 6),
+(13, 'Dragon Age', 'Un cataclismo ha sumido sus tierras en el caos. Los dragones cubren el cielo y proyectan una sombra de terror en un reino antes pacífico. Los magos declaran la guerra contra los templarios. Las naciones se alzan unas contra otras. Como líder de la Inquisición, de ti y de tu grupo de héroes depende restablecer el orden y acabar con los agentes de la entropía. Se formarán -y se romperán- alianzas a medida que avanza la campaña.', 
+69.00, '2022-04-11', 'https://store-images.s-microsoft.com/image/apps.59172.66474211586744867.e24f67e1-7195-4bf7-9758-84e7723c0673.f1ac78b0-3728-4d7f-8ccd-11a5398dbdfa?q=90&w=177&h=265', 2, 3, 3),
+(14, 'Ghostlore', 'Ghostlore es un RPG de acción de estética eastpunk en el que deberás hacer frente a monstruos del folclore del sudeste asiático. Inspirado en los clásicos RPG de acción atemporales, como Diablo 2 y Titan Quest, Ghostlore presenta un sistema detallado de personalización de artículos y personajes, mapas generados de manera procedural y auténticos gráficos retro de los 90.', 
+17.00, '2021-04-09', 'https://store-images.s-microsoft.com/image/apps.13983.14552973818515582.5e465a24-1d8b-4951-9db3-fd8afc9ea747.ab689ce1-f01c-4fd3-a989-849ffb6348b5?q=90&w=177&h=265', 2, 3, 4);
+
+select * from tb_genero;
+select * from tb_desarrolladora;
+select * from tb_juego;
+select * from tb_plataforma;
+
+
+
+
+
+
+

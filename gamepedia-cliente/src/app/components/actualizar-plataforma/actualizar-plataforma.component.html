@@ -1,0 +1,19 @@
+<div class="container col-sm-6 mt-5">
+    <h3 class="mb-5">Actualizar Plataforma <span class="badge text-bg-success">{{objPlataforma.plataforma}}</span></h3>
+    <form (ngSubmit)="onSubmit()" method="post">
+        <div class="row">
+            <div class="mb-3 col-sm-2">
+                <label for="codPla" class="form-label">Código:</label>
+                <input type="number" [(ngModel)]="objPlataforma.codPla" class="form-control" id="codPla" name="codPla" disabled>
+            </div>
+            
+            <div class="mb-3 col-sm-10">
+                <label for="plataforma" class="form-label">Nombre Plataforma:</label>
+                <input type="text" [(ngModel)]="objPlataforma.plataforma" class="form-control" id="plataforma" name="plataforma">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary col-12 mb-2">Guardar</button>
+        <button [routerLink]="'/plataformas'"  class="btn btn-success col-12">Ir al listado</button>
+    </form>
+</div>

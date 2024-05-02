@@ -1,0 +1,63 @@
+<div class="container col-sm-6 mt-5">
+    <h1 class="mb-4">Registro de Juego</h1>
+    <form (ngSubmit)="handleSubmit()" method="post">
+        <div class="mb-3" style="display: none;">
+            <label for="codJue" class="form-label">Código de Juego:</label>
+            <input type="number" [(ngModel)]="objJuego.codJue" class="form-control" id="codJue" name="codJue" disabled >
+        </div>
+
+        <div class="mb-3">
+            <label for="titJue" class="form-label">Título del Juego:</label>
+            <input type="text" [(ngModel)]="objJuego.titJue" class="form-control" placeholder="Ingresa un titulo..." id="titJue" name="titJue">
+        </div>
+
+        <div class="mb-3">
+            <label for="desJue" class="form-label">Descripción del Juego:</label>
+            <textarea [(ngModel)]="objJuego.desJue" class="form-control" placeholder="Ingresa una descripcion..." id="desJue" name="desJue"></textarea>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-sm-6">
+                <label for="preJue" class="form-label">Precio del juego:</label>
+                <input [(ngModel)]="objJuego.preJue" type="number" class="form-control" id="preJue" name="preJue">
+            </div>
+            
+            <div class="mb-3 col-sm-6">
+                <label for="fecLanJue" class="form-label">Fecha de Lanzamiento:</label>
+                <input [(ngModel)]="objJuego.fecLanJue" type="date" class="form-control" id="fecLanJue" name="fecLanJue">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Ingresa la URL Imagen:</label>
+            <input type="text" [(ngModel)]="objJuego.imagen" class="form-control" placeholder="https://example.com/fortnite.jpg" id="imagen" name="imagen">
+        </div>
+
+        <div class="mb-3">
+            <label for="juegoGenero" class="form-label">Seleccione Género del Juego:</label>
+            <select class="form-select" id="juegoGenero" [(ngModel)]="objJuego.juegoGenero" name="juegoGenero">
+                <option disabled value="0">---Seleccione un Género---</option>
+                <option *ngFor="let gen of objGenero" [ngValue]="gen">{{ gen.nomGen }}</option>
+            </select> 
+        </div>
+
+        <div class="mb-3">
+            <label for="juegoDesarrolladora" class="form-label">Seleccione Desarrolladora del Juego:</label>
+            <select class="form-select" id="juegoDesarrolladora" [(ngModel)]="objJuego.juegoDesarrolladora" name="juegoDesarrolladora" required>
+                <option disabled value="0">---Seleccione una desarrolladora---</option>
+                <option *ngFor="let des of objDesarrolladora" [ngValue]="des">{{ des.nomDes }}</option>
+            </select>
+        </div>
+
+        <div class="mb-5">
+            <label for="juegoDesarrolladora" class="form-label">Seleccione Plataforma del Juego:</label>
+            <select class="form-select" id="juegoPlataforma" [(ngModel)]="objJuego.juegoPlataforma" name="juegoPlataforma">
+                <option disabled value="0">---Seleccione una plataforma ---</option>
+                <option *ngFor="let pla of objPlataforma" [ngValue]="pla">{{ pla.plataforma }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary col-12 mb-1">Guardar</button>
+        <button [routerLink]="'/juegos'"  class="btn btn-success col-12">Ir al listado</button>
+    </form>
+</div>

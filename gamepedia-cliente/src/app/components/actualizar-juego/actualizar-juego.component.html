@@ -1,0 +1,83 @@
+<div class="container col-sm-6 mt-5">
+    <h3 class="mb-4">Actualizacion de Juego: <span class="badge text-bg-success">{{objJuego.titJue}}</span></h3>
+    <form (ngSubmit)="onSubmit()" method="post">
+        <div class="row">
+            <div class="mb-3 col-sm-2">
+                <label for="codJue" class="form-label">Código:</label>
+                <input type="number" [(ngModel)]="objJuego.codJue" class="form-control" id="codJue" name="codJue" disabled>
+            </div>
+            
+            <div class="mb-3 col-sm-10">
+                <label for="titJue" class="form-label">Título del Juego:</label>
+                <input type="text" [(ngModel)]="objJuego.titJue" class="form-control" id="titJue" name="titJue" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="desJue" class="form-label">Descripción del Juego:</label>
+            <textarea [(ngModel)]="objJuego.desJue" class="form-control" rows="3" id="desJue" name="desJue" required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-sm-6">
+                <label for="preJue" class="form-label">Precio: S/.</label>
+                <input [(ngModel)]="objJuego.preJue" type="number" class="form-control" id="preJue" name="preJue" required>
+            </div>
+    
+            <div class="mb-3 col-sm-6">
+                <label for="fecLanJue" class="form-label">Fecha de Lanzamiento:</label>
+                <input [(ngModel)]="objJuego.fecLanJue" type="date" class="form-control" id="fecLanJue" name="fecLanJue" required>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Ingresa la URL Imagen: </label> 
+            <button type="button" class="btn btn-primary ms-3 px-4" data-bs-toggle="modal" data-bs-target="#modalImagen">
+                Ver Imagen
+            </button>
+            <input type="text" [(ngModel)]="objJuego.imagen" class="form-control" id="imagen" name="imagen" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="juegoGenero" class="form-label">Género del Juego:</label>
+            <select class="form-select" id="juegoGenero" [(ngModel)]="objJuego.juegoGenero" name="juegoGenero" required>
+                <option disabled value="0">---Seleccione un Género---</option>
+                <option *ngFor="let gen of objGenero" [ngValue]="gen">{{ gen.nomGen }}</option>
+            </select> 
+        </div>
+
+        <div class="mb-3">
+            <label for="juegoDesarrolladora" class="form-label">Desarrolladora del Juego:</label>
+            <select class="form-select" id="juegoDesarrolladora" [(ngModel)]="objJuego.juegoDesarrolladora" name="juegoDesarrolladora" required>
+                <option disabled value="0">---Seleccione una desarrolladora---</option>
+                <option *ngFor="let des of objDesarrolladora" [ngValue]="des">{{ des.nomDes }}</option>
+            </select>
+        </div>
+
+        <div class="mb-5">
+            <label for="juegoDesarrolladora" class="form-label">Seleccione Plataforma del Juego:</label>
+            <select class="form-select" id="juegoPlataforma" [(ngModel)]="objJuego.juegoPlataforma" name="juegoPlataforma" required>
+                <option disabled value="0">---Seleccione una plataforma ---</option>
+                <option *ngFor="let pla of objPlataforma" [ngValue]="pla">{{ pla.plataforma }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary col-12 mb-1">Guardar</button>
+        <button [routerLink]="'/juegos'"  class="btn btn-success col-12">Ir al listado</button>
+    </form>
+</div>
+
+<!-- Modal para la imagen -->
+<div class="modal fade" id="modalImagen" tabindex="-1" aria-labelledby="modalImagenLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="modalImagenLabel">Portada del juego: <span>{{objJuego.titJue}}</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex align-items-center justify-content-center">
+            <img [src]="objJuego.imagen" class="img-fluid" style="height: 100%;">
+        </div>
+    </div>
+    </div>
+</div>
